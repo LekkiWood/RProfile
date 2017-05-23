@@ -1,0 +1,24 @@
+
+#Set CRAN mirror
+
+local({r <- getOption("repos")
+      r["CRAN"] <- "https://cran.revolutionanalytics.com"
+      options(repos=r)})
+
+#Make q() quit without asking questions
+#Create hidden namespace to store these functions in here so they are still there when I lose my temper and just clear everything.
+
+.env <- new.env()
+
+#Make q() quit without asking questions
+
+.env$q <- function (save="no", ...) {
+  quit(save=save, ...)}
+
+
+attach(.env)
+
+
+message("\n*** Enjoy your analysis Lekki :-)  ***\n")
+
+
